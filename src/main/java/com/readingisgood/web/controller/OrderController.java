@@ -37,7 +37,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
  * @author msaritas
  *
  */
-
 @RestController
 @RequestMapping("/order")
 @OpenAPIDefinition(info = @Info(title = "Order API", version = "1.0"))

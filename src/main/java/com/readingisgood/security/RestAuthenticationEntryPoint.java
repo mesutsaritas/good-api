@@ -9,17 +9,21 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 
+/**
+ * @author msaritas
+ *
+ */
 @Component("restAuthenticationEntryPoint")
 public class RestAuthenticationEntryPoint extends BasicAuthenticationEntryPoint {
 
-	public RestAuthenticationEntryPoint() {
-		super();
-		setRealmName("Realm");
-	}
+    public RestAuthenticationEntryPoint() {
+        super();
+        setRealmName("Realm");
+    }
 
-	@Override
-	public void commence(HttpServletRequest request, HttpServletResponse response,
-			AuthenticationException authException) throws IOException {
-		super.commence(request, response, authException);
-	}
+    @Override
+    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException)
+            throws IOException {
+        super.commence(request, response, authException);
+    }
 }

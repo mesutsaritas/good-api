@@ -9,14 +9,10 @@ import lombok.Setter;
  * @author msaritas
  *
  */
-
 @Getter
 @Setter
 public class OrderBookResource extends RepresentationModel<BookResource> {
 
-    /**
-     * Order create ederken kullanacağim
-     */
     private Long Id;
 
     private Double price;

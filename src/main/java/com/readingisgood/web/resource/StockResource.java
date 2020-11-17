@@ -9,7 +9,6 @@ import lombok.Setter;
  * @author msaritas
  *
  */
-
 @Setter
 @Getter
 public class StockResource extends RepresentationModel<StockResource> {

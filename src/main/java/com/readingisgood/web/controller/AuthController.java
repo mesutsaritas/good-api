@@ -29,7 +29,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
  * @author msaritas
  *
  */
-
 @RestController
 @RequestMapping("/auth/oauth")
 @OpenAPIDefinition(info = @Info(title = "Authentacion API", version = "1.0"))

@@ -18,6 +18,10 @@ import com.readingisgood.repository.CustomerRepository;
 import com.readingisgood.security.JwtAuthenticationFilter;
 import com.readingisgood.security.RestAuthenticationEntryPoint;
 
+
+/**
+ * @author msaritas
+ */
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @EnableWebSecurity

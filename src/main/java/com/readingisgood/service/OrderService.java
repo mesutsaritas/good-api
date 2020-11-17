@@ -26,7 +26,6 @@ import com.readingisgood.web.resource.UpdateBookResource;
  * @author msaritas
  *
  */
-
 @Service
 public class OrderService {
 

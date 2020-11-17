@@ -9,7 +9,6 @@ import com.readingisgood.model.Customer;
  * @author msaritas
  *
  */
-
 @Service
 public class AuthService {
 

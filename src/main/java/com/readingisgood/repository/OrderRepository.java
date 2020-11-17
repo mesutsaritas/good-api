@@ -12,7 +12,6 @@ import com.readingisgood.model.Order;
  * @author msaritas
  *
  */
-
 @Repository
 public interface OrderRepository extends CrudRepository<Order, Long> {
 
