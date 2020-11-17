@@ -51,7 +51,6 @@ public class OrderResourceAssembler extends RepresentationModelAssemblerSupport<
                 OrderBookResource bookResource = new OrderBookResource();
                 bookResource.setAmount(p.getAmount());
                 bookResource.setId(p.getId());
-                bookResource.setPrice(p.getUnitPrice());
                 orderBookResources.add(bookResource);
             });
         }

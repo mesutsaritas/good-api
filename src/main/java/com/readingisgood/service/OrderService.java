@@ -86,7 +86,7 @@ public class OrderService {
                     orderBook.setBook(bookFromDB);
                     orderBook.setAmount(orderBookResource.getAmount());
                     orderBook.setOrder(insertOrder);
-                    orderBook.setUnitPrice(orderBookResource.getPrice());
+                    orderBook.setUnitPrice(bookFromDB.getPrice());
                     insertOrderBookList.add(orderBook);
                 }
             }
