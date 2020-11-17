@@ -1,0 +1,1 @@
+INSERT INTO CUSTOMER (ID,USER_NAME,EMAIL,FIRST_NAME,LAST_NAME,IS_DELETED,PASSWORD,SALT,CREATED_DATE,ADDRESS) VALUES (1, 'msaritas','msaritas@hotmail.com','mesut','saritas',0,'5d6e7c1bfd7cfc9152c76f8303b29ba7684e18c988f0b1d5e5cfab5b133e74bc','12345',sysdate,'Istanbul'); 
