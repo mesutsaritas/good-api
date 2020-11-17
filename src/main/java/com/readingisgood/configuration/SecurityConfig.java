@@ -18,7 +18,6 @@ import com.readingisgood.repository.CustomerRepository;
 import com.readingisgood.security.JwtAuthenticationFilter;
 import com.readingisgood.security.RestAuthenticationEntryPoint;
 
-
 /**
  * @author msaritas
  */
@@ -43,8 +42,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         JwtAuthenticationFilter tokenProcessingFilter = new JwtAuthenticationFilter(customerRepository);
         tokenProcessingFilter.setAuthenticationManager(authenticationManagerBean());
         RequestMatcher customer = new AntPathRequestMatcher("/customer/**");
+        RequestMatcher order = new AntPathRequestMatcher("/order/**");
+        RequestMatcher book = new AntPathRequestMatcher("/book/**");
 
-        RequestMatcher orRequestMatcher = new OrRequestMatcher(customer);
+        RequestMatcher orRequestMatcher = new OrRequestMatcher(customer, order, book);
 
         tokenProcessingFilter.setRequiresAuthenticationRequestMatcher(orRequestMatcher);
         tokenProcessingFilter.setContinueChainBeforeSuccessfulAuthentication(true);
