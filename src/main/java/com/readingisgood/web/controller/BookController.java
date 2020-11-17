@@ -26,9 +26,7 @@ import com.readingisgood.web.resource.BookResourceAssembler;
 import com.readingisgood.web.resource.SuccessResource;
 import com.readingisgood.web.resource.UpdateBookResource;
 
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -40,7 +38,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
  */
 @RestController
 @RequestMapping("/book")
-@OpenAPIDefinition(info = @Info(title = "Book API", version = "1.0"))
 public class BookController {
 
     private final BookService bookService;

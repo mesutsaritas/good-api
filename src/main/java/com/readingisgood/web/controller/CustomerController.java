@@ -26,9 +26,7 @@ import com.readingisgood.web.resource.CustomerResourceAssembler;
 import com.readingisgood.web.resource.CustomerUpdateResouce;
 import com.readingisgood.web.resource.SuccessResource;
 
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -40,7 +38,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
  */
 @RestController
 @RequestMapping("/customer")
-@OpenAPIDefinition(info = @Info(title = "Customer API", version = "1.0"))
 public class CustomerController {
 
     private final CustomerService customerService;

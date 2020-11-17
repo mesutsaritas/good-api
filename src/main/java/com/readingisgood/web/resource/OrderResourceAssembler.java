@@ -50,7 +50,7 @@ public class OrderResourceAssembler extends RepresentationModelAssemblerSupport<
             entity.getEntries().forEach(p -> {
                 OrderBookResource bookResource = new OrderBookResource();
                 bookResource.setAmount(p.getAmount());
-                bookResource.setId(p.getId());
+                bookResource.setId(p.getBook().getId());
                 orderBookResources.add(bookResource);
             });
         }

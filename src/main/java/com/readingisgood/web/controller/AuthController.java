@@ -17,9 +17,7 @@ import com.readingisgood.service.AuthService;
 import com.readingisgood.web.exception.UserNameAndPasswordException;
 import com.readingisgood.web.resource.AuthResource;
 
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -31,7 +29,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
  */
 @RestController
 @RequestMapping("/auth/oauth")
-@OpenAPIDefinition(info = @Info(title = "Authentacion API", version = "1.0"))
 public class AuthController {
 
     private static Logger LOGGER = LoggerFactory.getLogger(AuthController.class);

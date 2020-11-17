@@ -39,7 +39,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
  */
 @RestController
 @RequestMapping("/order")
-@OpenAPIDefinition(info = @Info(title = "Order API", version = "1.0"))
+@OpenAPIDefinition(info = @Info(title = "Reading is Good API", version = "1.0"))
 public class OrderController {
 
     private final OrderService orderService;

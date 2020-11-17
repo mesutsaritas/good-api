@@ -87,6 +87,17 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
      * 
      * @param e
      * @return
+     * @throws Exception
+     */
+    @ExceptionHandler(value = OrderNotFoundException.class)
+    public @ResponseBody ResponseEntity<ErrorResource> orderNotFoundException(OrderNotFoundException e) throws Exception {
+        return new ResponseEntity<>(e.getErrorResource(), HttpStatus.NOT_FOUND);
+    }
+
+    /**
+     * 
+     * @param e
+     * @return
      */
 
     @ExceptionHandler(value = UserNameAlreadyException.class)
