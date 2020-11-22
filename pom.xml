@@ -10,10 +10,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com</groupId>
-	<artifactId>readingisgood</artifactId>
+	<artifactId>goodapi</artifactId>
 	<version>0.0.1</version>
-	<name>reading-is-good</name>
-	<description>Implementing Reading Is Good API use Spring Boot</description>
+	<name>good-api</name>
+	<description>Implementing Good API use Spring Boot</description>
 
 	<properties>
 		<java.version>11</java.version>
@@ -75,6 +75,7 @@
 			<scope>runtime</scope>
 			<version>1.4.193</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
