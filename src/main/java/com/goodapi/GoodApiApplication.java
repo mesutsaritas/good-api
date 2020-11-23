@@ -6,9 +6,8 @@ import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author msaritas
- *
  */
-@ComponentScan({ "com.goodapi" })
+@ComponentScan({"com.goodapi"})
 @SpringBootApplication
 public class GoodApiApplication {
 

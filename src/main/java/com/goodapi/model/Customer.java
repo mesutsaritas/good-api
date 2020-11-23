@@ -16,7 +16,6 @@ import lombok.Setter;
 
 /**
  * @author msaritas
- *
  */
 @Entity
 @Table(name = "CUSTOMER")
@@ -25,7 +24,7 @@ import lombok.Setter;
 @Setter
 public class Customer extends Auditable<String, Long> {
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = 1L;
 
