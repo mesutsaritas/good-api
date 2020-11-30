@@ -25,9 +25,7 @@ import com.goodapi.web.resource.CustomerResouce;
 import com.goodapi.web.resource.OrderResource;
 import com.goodapi.web.resource.OrderResourceAssembler;
 
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -39,7 +37,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
  */
 @RestController
 @RequestMapping("/order")
-@OpenAPIDefinition(info = @Info(title = "Good API", version = "1.0"))
 public class OrderController {
 
     private final OrderService orderService;

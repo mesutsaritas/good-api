@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -81,7 +82,9 @@ public class CustomerController {
             content = { @Content(mediaType = "application/json", schema = @Schema(implementation = CustomerResouce.class)) }) })
     @GetMapping
     public ResponseEntity<CollectionModel<CustomerResouce>> list() {
-        return ResponseEntity.ok().body(customerResourceAssembler.toCollectionModel(customerService.list()));
+        CollectionModel<CustomerResouce> customerResouces = customerResourceAssembler.toCollectionModel(customerService.list());
+        customerResouces.add(WebMvcLinkBuilder.linkTo(CustomerController.class).withRel("customers"));
+        return ResponseEntity.ok().body(customerResouces);
     }
 
     /**
