@@ -32,7 +32,7 @@ public class CorsFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
         String method = req.getMethod();
-        final String allowedMethods = "GET,POST,DELETE,PUT,OPTIONS";
+        final String allowedMethods = "GET,POST,DELETE,PUT,PATCH,OPTIONS";
 
         if (!allowedMethods.contains(method)) {
             res.setStatus(HttpStatus.METHOD_NOT_ALLOWED.value());

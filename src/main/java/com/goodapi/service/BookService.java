@@ -65,7 +65,7 @@ public class BookService {
         if (bookFromDB != null) {
             throw new BookCodeExistException();
         }
-        
+
         Book book = new Book();
         book.setCode(bookResource.getCode());
         book.setDescription(bookResource.getDescription());
@@ -83,7 +83,7 @@ public class BookService {
      * @return
      * @throws BookCodeExistException
      */
-    public Book update(UpdateBookResource bookResource) throws BookNotFoundException {
+    public Book patch(UpdateBookResource bookResource) throws BookNotFoundException {
         Optional<Book> bookFromDB = bookRepository.findById(bookResource.getId());
 
         return bookFromDB.map(book -> {
@@ -102,6 +102,28 @@ public class BookService {
             if (bookResource.getStock() != null) {
                 book.setStock(bookResource.getStock());
             }
+            bookRepository.save(book);
+            LOGGER.info("[BookService][update][Book Updated! customerId:{}]", book.getId());
+            return book;
+        }).orElseThrow(BookNotFoundException::new);
+
+    }
+
+    /**
+     * 
+     * @param bookResource
+     * @return
+     * @throws BookNotFoundException
+     */
+    public Book update(UpdateBookResource bookResource) throws BookNotFoundException {
+        Optional<Book> bookFromDB = bookRepository.findById(bookResource.getId());
+
+        return bookFromDB.map(book -> {
+            book.setDescription(bookResource.getDescription());
+            book.setCode(bookResource.getCode());
+            book.setPrice(bookResource.getPrice());
+            book.setName(bookResource.getName());
+            book.setStock(bookResource.getStock());
             bookRepository.save(book);
             LOGGER.info("[BookService][update][Book Updated! customerId:{}]", book.getId());
             return book;
