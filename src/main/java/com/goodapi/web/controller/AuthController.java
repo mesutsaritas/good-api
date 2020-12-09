@@ -31,51 +31,53 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 @RequestMapping("/auth/oauth")
 public class AuthController {
 
-    private static Logger LOGGER = LoggerFactory.getLogger(AuthController.class);
+	private static Logger LOGGER = LoggerFactory.getLogger(AuthController.class);
 
-    private final AuthService authService;
+	private final AuthService authService;
 
-    @Autowired
-    public AuthController(AuthService authService) {
-        this.authService = authService;
-    }
+	@Autowired
+	public AuthController(AuthService authService) {
+		this.authService = authService;
+	}
 
-    /**
-     * 
-     * @param authResource
-     * @return
-     * @throws Exception
-     */
-    @Operation(summary = "Get token ")
-    @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Get token",
-            content = { @Content(mediaType = "application/json", schema = @Schema(implementation = AuthResource.class)) }) })
-    @PostMapping("/token")
-    public ResponseEntity<AuthResource> getToken(@RequestBody AuthResource authResource) throws Exception {
+	/**
+	 * 
+	 * @param authResource
+	 * @return
+	 * @throws Exception
+	 */
+	@Operation(summary = "Get token ")
+	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Get token", content = {
+			@Content(mediaType = "application/json", schema = @Schema(implementation = AuthResource.class)) }) })
+	@PostMapping("/token")
+	public ResponseEntity<AuthResource> getToken(@RequestBody AuthResource authResource) throws Exception {
 
-        String username = authResource.getUserName();
-        String password = authResource.getPassword();
-        if (!StringUtils.hasText(authResource.getUserName()) || !StringUtils.hasText(password)) {
-            LOGGER.debug("[SecurityController][Login:UsernameorPasswordIsEmpty][UserName:{} Password :{}", username, password);
-            throw new UserNameAndPasswordException();
-        }
+		String username = authResource.getUserName();
+		String password = authResource.getPassword();
+		if (!StringUtils.hasText(authResource.getUserName()) || !StringUtils.hasText(password)) {
+			LOGGER.debug("[SecurityController][Login:UsernameorPasswordIsEmpty][UserName:{} Password :{}", username,
+					password);
+			throw new UserNameAndPasswordException();
+		}
 
-        Customer customer = authService.getCustomerByUserName(username);
-        boolean isPasswordCorrect;
-        if (customer != null) {
-            isPasswordCorrect = PasswordHashUtil.INSTANCE.checkPassword(password, customer.getPassword(), customer.getSalt());
-            if (!isPasswordCorrect) {
-                throw new UserNameAndPasswordException();
-            } else {
-                // User is authenticated.
-                String token = JwtUtil.INSTANCE.addAuthentication(customer.getId(), customer.getUserName());
+		Customer customer = authService.getCustomerByUserName(username);
+		boolean isPasswordCorrect;
+		if (customer != null) {
+			isPasswordCorrect = PasswordHashUtil.INSTANCE.checkPassword(password, customer.getPassword(),
+					customer.getSalt());
+			if (!isPasswordCorrect) {
+				throw new UserNameAndPasswordException();
+			} else {
+				// User is authenticated.
+				String token = JwtUtil.INSTANCE.addAuthentication(customer.getId(), customer.getUserName());
 
-                AuthResource resource = new AuthResource();
-                resource.setToken(token);
-                return ResponseEntity.ok().body(resource);
-            }
-        } else {
-            throw new UserNameAndPasswordException();
-        }
+				AuthResource resource = new AuthResource();
+				resource.setToken(token);
+				return ResponseEntity.ok().body(resource);
+			}
+		} else {
+			throw new UserNameAndPasswordException();
+		}
 
-    }
+	}
 }
